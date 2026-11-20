@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KeyLinkProtocolMessage",
+  "description": "Transport-agnostic communication protocol for KeyLink wireless keyboard and mouse",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "default": 1,
+      "description": "Protocol version"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "PAIR_REQUEST",
+        "PAIR_RESPONSE",
+        "AUTH_REQUEST",
+        "AUTH_RESPONSE",
+        "MOUSE_MOVE",
+        "MOUSE_CLICK",
+        "MOUSE_SCROLL",
+        "TEXT_INPUT",
+        "KEY_EVENT",
+        "SHORTCUT",
+        "PING",
+        "PONG",
+        "DISCONNECT",
+        "STATUS_UPDATE"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique message id or sequence number"
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "required": ["v", "type", "payload"]
+}
